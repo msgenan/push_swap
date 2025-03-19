@@ -1,4 +1,4 @@
-NAME = pipex
+NAME = push_swap
 SRCS = ./src/push_swap.c \
 ./src/utils.c
 
