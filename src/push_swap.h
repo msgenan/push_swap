@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include "libft/libft.h"
+#include "my_lib/my_lib.h"
 
 typedef struct s_stack
 {
