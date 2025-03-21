@@ -1,5 +1,6 @@
 NAME = my_lib.a
-SRCS = ft_strlen.c \
+SRCS = ft_atoi.c \
+ft_strlen.c \
 ft_strchr.c \
 ft_strdup.c \
 ft_substr.c \
@@ -28,7 +29,7 @@ $(NAME): $(OBJS)
 clean:
 	rm -f $(OBJS)
 
-fclean: clean
+fclean:
 	rm -f $(NAME)
 
 

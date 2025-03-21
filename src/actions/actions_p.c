@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   actions_p.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 23:08:14 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/21 03:36:23 by mugenan          ###   ########.fr       */
+/*   Created: 2025/03/21 06:31:19 by mugenan           #+#    #+#             */
+/*   Updated: 2025/03/21 06:34:35 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "my_lib.h"
+#include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+action_pa(t_stack *a, t_stack *b) // (push a) b[first] -> a[first]
 {
-	t_list	*node;
+    
+}
 
-	node = malloc(sizeof(t_list));
-	if (!node)
-		return (0);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+action_pb(t_stack *a, t_stack *b) // (push b) a[first] -> b[first]
+{
+
 }
