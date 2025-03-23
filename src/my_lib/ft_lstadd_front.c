@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fxc <fxc@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 23:14:20 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/22 23:09:43 by fxc              ###   ########.fr       */
+/*   Updated: 2025/03/24 01:04:23 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
-	if (!lst || !new)
+	if (!(*lst))
+	{
+		*lst = new;
 		return ;
+	}
 	new->next = *lst;
 	*lst = new;
 }

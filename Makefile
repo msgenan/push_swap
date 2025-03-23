@@ -4,8 +4,8 @@ SRCS = ./src/push_swap.c \
        ./src/argument.c \
        ./src/actions/actions_s.c \
 	   ./src/actions/actions_p.c \
-    #    ./src/actions/actions_r.c \
-	#    ./src/actions/actions_rr.c 
+       ./src/actions/actions_r.c \
+	    ./src/actions/actions_rr.c 
 
 BUILD_DIR = build
 OBJS = $(SRCS:./src/%.c=$(BUILD_DIR)/%.o)

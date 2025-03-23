@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fxc <fxc@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 23:08:14 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/22 23:07:38 by fxc              ###   ########.fr       */
+/*   Updated: 2025/03/24 01:06:09 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "my_lib.h"
 
-t_stack *new_node(int data)
+t_stack *ft_lstnew(int data)
 {
     t_stack *node;
 

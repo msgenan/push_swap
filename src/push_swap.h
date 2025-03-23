@@ -17,21 +17,27 @@
 
 void    ft_error(char *str);
 void    str_free(char **str);
-
-
 long    ft_atol(char *str);
 void    check_dup(char **s);
 void    check_arg(char **s);
 char    **take_arg(char **av);
 int     ft_strzero(const char *s);
-
+void    take_list(t_stack **a, char **s);
 
 
 void    action_sb(t_stack *b);
 void    action_sa(t_stack *a);
 void    action_ss(t_stack *a, t_stack *b);
 
-void	action_pa(t_stack *a, t_stack *b);
-void	action_pb(t_stack *a, t_stack *b);
+void	action_pa(t_stack **a, t_stack **b);
+void	action_pb(t_stack **a, t_stack **b);
+
+void    action_ra(t_stack **a);
+void    action_rb(t_stack **b);
+void    action_rr(t_stack **a, t_stack **b);
+
+void    action_rra(t_stack **a);
+void    action_rrb(t_stack **b);
+void    action_rrr(t_stack **a, t_stack **b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 01:00:19 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/21 02:25:24 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/03/23 23:02:51 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void    str_free(char **str)
         free(str[i++]);
     free(str);
 }
+
 int ft_strzero(const char *s)
 {
 	size_t	i;

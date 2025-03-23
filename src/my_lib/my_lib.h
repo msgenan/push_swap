@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_lib.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fxc <fxc@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:17:27 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/22 23:33:01 by fxc              ###   ########.fr       */
+/*   Updated: 2025/03/24 00:19:29 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_stack
 }					t_stack;
 
 
-int	ft_lstsize(t_stack *lst);
+int		ft_lstsize(t_stack *lst);
 int		ft_atoi(const char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
@@ -34,7 +34,7 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack	*ft_lstlast(t_stack *lst);
 size_t	ft_strlen(const char *s);
-t_stack *new_node(int data);
+t_stack *ft_lstnew(int data);
 
 
 #endif

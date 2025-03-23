@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 00:59:46 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/21 03:26:40 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/03/24 02:21:13 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,3 +83,29 @@ char    **take_arg(char **av)
     return (s);
 }
 
+void    take_list(t_stack **a, char **s)
+{
+    t_stack *node;
+    t_stack *temp;
+    int i;
+
+    i = 0;
+    while(s[i])
+    {
+        node = ft_lstnew(ft_atol(s[i]));
+        if(!node)
+            ft_error("something wrong there man!");
+        if(!*a)
+            *a = node;
+        else
+		{
+			temp = *a;
+            while(temp->next)
+				temp = temp->next;
+			temp->next = node;
+        }
+        i++;
+        if(!s[i])
+			temp->next->next = NULL;
+	}
+}
