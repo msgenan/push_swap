@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fxc <fxc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 23:14:20 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/20 21:05:39 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/03/22 23:09:43 by fxc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "my_lib.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
 	if (!lst || !new)
 		return ;

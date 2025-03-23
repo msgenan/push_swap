@@ -2,9 +2,10 @@ NAME = push_swap
 SRCS = ./src/push_swap.c \
        ./src/utils.c \
        ./src/argument.c \
-	   ./src/actions/actions_s.c \
-	   ./src/actions/actions_r.c \
-	   ./src/actions/actions_p.c 
+       ./src/actions/actions_s.c \
+	   ./src/actions/actions_p.c \
+    #    ./src/actions/actions_r.c \
+	#    ./src/actions/actions_rr.c 
 
 BUILD_DIR = build
 OBJS = $(SRCS:./src/%.c=$(BUILD_DIR)/%.o)
@@ -18,13 +19,16 @@ COLOR_LIGHT_GREEN = \033[0;92m
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(MY_LIB)
-	$(CC) $(CFLAGS) $(OBJS) $(MY_LIB) -o $(NAME)
+$(NAME): $(MY_LIB) $(OBJS) 
+	$(CC) $(CFLAGS)  $(OBJS) $(MY_LIB) -o $(NAME)
 	@echo "✅ Build completed."
 
 # .o dosyalarını build/ klasörüne yerleştir
-$(BUILD_DIR)/%.o: ./src/%.c | $(BUILD_DIR)
+$(BUILD_DIR)/%.o: ./src/%.c | $(BUILD_DIR)/actions
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/actions:
+	mkdir -p $(BUILD_DIR)/actions
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
@@ -39,6 +43,7 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAME)
+	@make fclean -C $(MY_LIB_PATH) > /dev/null 2>&1
 	@echo "🗑️  Executable removed."
 
 re: fclean all

@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fxc <fxc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 01:00:09 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/21 06:23:47 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/03/22 23:42:01 by fxc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_stack *new_node(int data)
-{
-    t_stack *node;
-
-    node = malloc(sizeof(t_list));
-    if(!node)
-        return(0);
-    node->data = data;
-    node->next = NULL;
-    return(node);
-}
 
 void print_list(t_stack *a)
 {
@@ -65,16 +53,16 @@ void    take_list(t_stack **a, char **s)
 int main(int ac, char **av)
 {
 	t_stack *a;
-	// t_stack *b;
+	t_stack *b;
     char **str;
 
 	a = NULL;
-	// b = NULL;
+	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		ft_error("hatali input!");
     str = take_arg(av);
     take_list(&a, str);
+    action_pb(a, b);
     print_list(a);
-    action_sa(a);
-    print_list(a);
+    print_list(b);
 }

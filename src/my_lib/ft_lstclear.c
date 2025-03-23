@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fxc <fxc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:04:35 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/20 21:05:37 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/03/22 23:33:42 by fxc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "my_lib.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_stack **lst)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
-	if (!lst || !del)
+	if (!lst)
 		return ;
 	tmp = (*lst);
 	while (tmp != NULL)
 	{
 		tmp = (*lst)->next;
-		(*del)((*lst)->content);
+		(*lst)->data = 0;
 		free(*lst);
 		(*lst) = tmp;
 	}

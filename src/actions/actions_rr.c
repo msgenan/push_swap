@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   actions_rr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fxc <fxc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 06:41:15 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/21 06:44:09 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/03/22 22:54:18 by fxc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void    action_rra(t_stack *a) // a[last] -> a[first]
 {

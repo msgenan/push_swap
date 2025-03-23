@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fxc <fxc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 23:08:14 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/21 03:36:23 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/03/22 23:07:38 by fxc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "my_lib.h"
 
-t_list	*ft_lstnew(void *content)
+t_stack *new_node(int data)
 {
-	t_list	*node;
+    t_stack *node;
 
-	node = malloc(sizeof(t_list));
-	if (!node)
-		return (0);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+    node = malloc(sizeof(t_stack));
+    if(!node)
+        return(0);
+    node->data = data;
+    node->next = NULL;
+    return(node);
 }

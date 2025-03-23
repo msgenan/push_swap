@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fxc <fxc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 05:17:43 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/20 21:05:19 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/03/22 23:07:57 by fxc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "my_lib.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_stack *lst)
 {
-	t_list	*list;
+	t_stack	*list;
 	int		i;
 
 	list = lst;
