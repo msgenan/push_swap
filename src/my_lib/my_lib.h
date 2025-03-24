@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:17:27 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/24 08:18:32 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/03/24 08:37:52 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 typedef struct s_stack
 {
-	int			data;
+	int	data;
+	int	size;
 	struct s_stack	*next;
 }					t_stack;
 
