@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 06:35:02 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/24 08:53:45 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/03/24 08:56:13 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void    action_ra(t_stack **a) // a[first] -> a[last]
     ft_lstdelone(tmp);
     ft_lstadd_back(a, new);
 	actions_message("ra");
-    if(check_sorted(*a) == 1 && (*a)->size == ft_lstsize(a))
+    if(check_sorted(*a) == 1 && (*a)->size == ft_lstsize(*a))
 		return(ft_lstclear(a), exit(0));
 }
 
