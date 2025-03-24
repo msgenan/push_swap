@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 06:35:02 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/24 00:43:29 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/03/24 08:26:25 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ void    action_ra(t_stack **a) // a[first] -> a[last]
     tmp = *a;
     *a = tmp->next;
     ft_lstdelone(tmp);
-   ft_lstadd_back(a, new);
+    ft_lstadd_back(a, new);
+	actions_message("ra");
+    if(check_sorted(*a) == 1)
+		return(ft_lstclear(a), exit(0));
 }
 
 void    action_rb(t_stack **b) // b[first] -> a[last]
@@ -37,11 +40,13 @@ void    action_rb(t_stack **b) // b[first] -> a[last]
     tmp = *b;
     *b = tmp->next;
     ft_lstdelone(tmp);
-   ft_lstadd_back(b, new);
+    ft_lstadd_back(b, new);
+	actions_message("rb");
 }
 
 void    action_rr(t_stack **a, t_stack **b) // (ra) (rb)
 {
     action_ra(a);
     action_rb(b);
+	actions_message("rr");
 }

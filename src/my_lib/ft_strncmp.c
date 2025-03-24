@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 14:04:35 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/24 05:59:11 by mugenan          ###   ########.fr       */
+/*   Created: 2025/03/24 08:17:04 by mugenan           #+#    #+#             */
+/*   Updated: 2025/03/24 08:17:18 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "my_lib.h"
 
-void	ft_lstclear(t_stack **lst)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_stack	*tmp;
+	size_t	i;
 
-	if (!lst || !*lst)
-		return ;
-	while (*lst)
+	i = 0;
+	while ((s1[i] != 0 || s2[i] != 0) && i < n)
 	{
-		tmp = (*lst)->next;
-		free(*lst);
-		*lst = tmp;
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
 	}
-	free(tmp);
+	return (0);
 }

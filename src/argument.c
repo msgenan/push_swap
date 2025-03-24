@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 00:59:46 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/24 02:21:13 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/03/24 07:56:15 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void    take_list(t_stack **a, char **s)
         }
         i++;
         if(!s[i])
-			temp->next->next = NULL;
+			node->next = NULL;
 	}
+    str_free(s);
 }

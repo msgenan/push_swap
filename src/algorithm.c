@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 14:04:35 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/24 05:59:11 by mugenan          ###   ########.fr       */
+/*   Created: 2025/03/24 03:46:16 by mugenan           #+#    #+#             */
+/*   Updated: 2025/03/24 08:20:13 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "my_lib.h"
+#include "push_swap.h"
 
-void	ft_lstclear(t_stack **lst)
+int	check_sorted(t_stack *a)
 {
-	t_stack	*tmp;
-
-	if (!lst || !*lst)
-		return ;
-	while (*lst)
+	while(a->next)
 	{
-		tmp = (*lst)->next;
-		free(*lst);
-		*lst = tmp;
+		if(a->data > a->next->data)
+			return(0);
+		a = a->next;
 	}
-	free(tmp);
+	return (1);
+}
+
+void	sort_for_three(t_stack *a)
+{
+	t_stack *tmp;
+
+	tmp = a;
+	while(a->next)
+	{
+		if(a->data > a->next->data)
+		{
+			action_sa(a);
+			a = tmp;
+		}
+		else
+			a = a->next;
+		if(check_sorted(a) == 1)
+			return ;
+	}		
 }

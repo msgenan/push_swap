@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions_s.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fxc <fxc@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 06:10:11 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/22 22:54:22 by fxc              ###   ########.fr       */
+/*   Updated: 2025/03/24 08:31:53 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void    action_sa(t_stack *a) //(swap a) 1 -> 2 || 2 -> 1
     tmp = tmp->next;
     a->data = tmp->data;
     tmp->data = data;
+	actions_message("sa");
+    if(check_sorted(a) == 1)
+		return(ft_lstclear(&a), exit(0));
 }
 
 void    action_sb(t_stack *b) //(swap b) 1 -> 2 || 2 -> 1
@@ -38,10 +41,13 @@ void    action_sb(t_stack *b) //(swap b) 1 -> 2 || 2 -> 1
     tmp = tmp->next;
     b->data = tmp->data;
     tmp->data = data;
+	actions_message("sb");
+
 }
 
 void    action_ss(t_stack *a, t_stack *b) //(swap a) (swap b)
 {
     action_sa(a);
     action_sb(b);
+	actions_message("ss");
 }

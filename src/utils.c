@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 01:00:19 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/23 23:02:51 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/03/24 08:13:36 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,26 @@ long    ft_atol(char *str)
     while(str[i] && (str[i] >= '0' && str[i] <= '9'))
         result = (10 * result) + (str[i++] - 48);
     return(result * sign);
+}
+
+void	actions_message(char *string)
+{
+	if (!ft_strncmp(string, "pa", 2))
+		write(1, "pa\n", 3);
+	else if (!ft_strncmp(string, "pb", 2))
+		write(1, "pb\n", 3);
+	else if (!ft_strncmp(string, "rra", 3))
+		write(1, "rra\n", 4);
+	else if (!ft_strncmp(string, "rrr", 3))
+		write(1, "rrr\n", 4);
+	else if (!ft_strncmp(string, "ra", 2))
+		write(1, "ra\n", 3);
+	else if (!ft_strncmp(string, "rb", 2))
+		write(1, "rb\n", 3);
+	else if (!ft_strncmp(string, "rr", 2))
+		write(1, "rr\n", 3);
+	else if (!ft_strncmp(string, "sa", 2))
+		write(1, "sa\n", 3);
+	else if (!ft_strncmp(string, "sb", 2))
+		write(1, "sb\n", 3);
 }

@@ -21,8 +21,11 @@ long    ft_atol(char *str);
 void    check_dup(char **s);
 void    check_arg(char **s);
 char    **take_arg(char **av);
+int     check_sorted(t_stack *a);
 int     ft_strzero(const char *s);
+void	sort_for_three(t_stack *a);
 void    take_list(t_stack **a, char **s);
+void	actions_message(char *string);
 
 
 void    action_sb(t_stack *b);

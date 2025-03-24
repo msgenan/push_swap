@@ -1,29 +1,27 @@
 NAME = push_swap
-SRCS = ./src/push_swap.c \
-       ./src/utils.c \
-       ./src/argument.c \
-       ./src/actions/actions_s.c \
-	   ./src/actions/actions_p.c \
-       ./src/actions/actions_r.c \
-	    ./src/actions/actions_rr.c 
+SRCS =	./src/push_swap.c \
+		./src/utils.c \
+		./src/argument.c \
+		./src/actions/actions_s.c \
+		./src/actions/actions_p.c \
+		./src/actions/actions_r.c \
+		./src/actions/actions_rr.c \
+		./src/algorithm.c \
 
 BUILD_DIR = build
 OBJS = $(SRCS:./src/%.c=$(BUILD_DIR)/%.o)
-
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MY_LIB_PATH = ./src/my_lib
 MY_LIB = $(MY_LIB_PATH)/my_lib.a
 
-COLOR_LIGHT_GREEN = \033[0;92m
 
 all: $(NAME)
 
-$(NAME): $(MY_LIB) $(OBJS) 
+$(NAME): $(MY_LIB) $(OBJS)
 	$(CC) $(CFLAGS)  $(OBJS) $(MY_LIB) -o $(NAME)
 	@echo "✅ Build completed."
 
-# .o dosyalarını build/ klasörüne yerleştir
 $(BUILD_DIR)/%.o: ./src/%.c | $(BUILD_DIR)/actions
 	$(CC) $(CFLAGS) -c $< -o $@
 
