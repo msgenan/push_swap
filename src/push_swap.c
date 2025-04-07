@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 01:00:09 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/24 07:54:34 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/07 13:17:43 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,10 @@ int main(int ac, char **av)
 		ft_error("hatali input!");
 	str = take_arg(av);
 	take_list(&a, str);
+	a->size = ft_lstsize(a);
 	if(check_sorted(a) == 1)
 		return(ft_lstclear(&a), 0);
 	if(ft_lstsize(a) <= 3)
 		sort_for_three(a);
-	print_list(a, 'a');
-	print_list(b, 'b');
-	ft_lstclear(&a);
+	
 }

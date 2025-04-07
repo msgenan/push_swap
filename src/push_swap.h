@@ -6,8 +6,7 @@
 #include <stdlib.h>
 #include "my_lib/my_lib.h"
 
-
-#ifndef INT_MAX 
+#ifndef INT_MAX
 # define INT_MAX 2147483647
 # endif
 
