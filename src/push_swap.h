@@ -14,6 +14,8 @@
 # define INT_MIN -2147483648
 #endif
 
+void	print_list(t_stack *a, char c);
+
 void    ft_error(char *str);
 void    str_free(char **str);
 long    ft_atol(char *str);
@@ -25,6 +27,19 @@ int     ft_strzero(const char *s);
 void	sort_for_three(t_stack *a);
 void    take_list(t_stack **a, char **s);
 void	actions_message(char *string);
+
+
+int     total_move(int a, int b);
+int	    find_min_value(t_stack **b);
+int	    find_max_value(t_stack **b);
+int     find_number_b(int data, t_stack **b);
+int     move_calculator_b(t_stack **b, int num);
+int     move_calculator_a(t_stack **a, int data);
+void	algorithm(t_stack **a, t_stack **b);
+void	most_logical_move(t_stack **a, t_stack **b);
+void	push_one(t_stack **a, t_stack **b, int index, char flag);
+void	push_together(t_stack **a, t_stack **b, int index_a, int index_b);
+void    push_logical_move_b(t_stack **a, t_stack **b, int index_a, int index_b);
 
 
 void    action_sb(t_stack *b);

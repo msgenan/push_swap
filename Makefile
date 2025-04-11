@@ -7,6 +7,8 @@ SRCS =	./src/push_swap.c \
 		./src/actions/actions_r.c \
 		./src/actions/actions_rr.c \
 		./src/algorithm.c \
+		./src/algorithmic_actions.c \
+		./src/calculater.c \
 
 BUILD_DIR = build
 OBJS = $(SRCS:./src/%.c=$(BUILD_DIR)/%.o)
