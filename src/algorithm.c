@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 03:46:16 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/11 04:44:58 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/12 16:36:01 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ void	algorithm(t_stack **a, t_stack **b)
 		action_pb(a, b);
 	while(ft_lstsize(*a) > 3)
 		most_logical_move(a, b);
+	while((*b) > 0)
+		most_logical_move_b_to_a(a, b);
 	print_list(*a, 'a');
 	print_list(*b, 'b');
-
 }
 
 int	check_sorted(t_stack *a)
@@ -97,10 +98,8 @@ void	most_logical_move(t_stack **a, t_stack **b)
 	}
 	index_a = move_calculator_a(a, candidate_a);
 	index_b = move_calculator_b(b, candidate_b);
-	push_logical_move_b(a, b, index_a, index_b);
+	push_logical_to_b(a, b, index_a, index_b);
 }
-
-
 
 int	total_move(int a, int b)
 {

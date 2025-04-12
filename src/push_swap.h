@@ -15,6 +15,10 @@
 #endif
 
 void	print_list(t_stack *a, char c);
+void	most_logical_move_b_to_a(t_stack **a, t_stack **b);
+void	push_logical_move_a(t_stack **a, t_stack **b, int index_a, int index_b);
+int     find_number_a(int data, t_stack **a);
+
 
 void    ft_error(char *str);
 void    str_free(char **str);
@@ -39,7 +43,7 @@ void	algorithm(t_stack **a, t_stack **b);
 void	most_logical_move(t_stack **a, t_stack **b);
 void	push_one(t_stack **a, t_stack **b, int index, char flag);
 void	push_together(t_stack **a, t_stack **b, int index_a, int index_b);
-void    push_logical_move_b(t_stack **a, t_stack **b, int index_a, int index_b);
+void    push_logical_to_b(t_stack **a, t_stack **b, int index_a, int index_b);
 
 
 void    action_sb(t_stack *b);
