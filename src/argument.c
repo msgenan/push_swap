@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 00:59:46 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/07 13:09:02 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/12 21:47:51 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void    check_arg(char **s)
 		j = 0;
 		while(s[i][j])
 		{
-			if(!((s[i][j] >= '0' && s[i][j] <= '9') || (s[i][j] >= '-' && s[i][j] <= '+')))
+			if(!((s[i][j] >= '0' && s[i][j] <= '9') || !(s[i][j] >= '-' && s[i][j] <= '+')))
 				return(str_free(s), ft_error("Karakterler sayilardan oluşmadi!"));
 			j++;
 		}

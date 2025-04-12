@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 01:00:19 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/24 08:13:36 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/12 20:43:57 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,12 @@ void	actions_message(char *string)
 		write(1, "pa\n", 3);
 	else if (!ft_strncmp(string, "pb", 2))
 		write(1, "pb\n", 3);
-	else if (!ft_strncmp(string, "rra", 3))
-		write(1, "rra\n", 4);
 	else if (!ft_strncmp(string, "rrr", 3))
 		write(1, "rrr\n", 4);
+	else if (!ft_strncmp(string, "rra", 3))
+		write(1, "rra\n", 4);
+	else if (!ft_strncmp(string, "rrb", 3))
+		write(1, "rrb\n", 4);
 	else if (!ft_strncmp(string, "ra", 2))
 		write(1, "ra\n", 3);
 	else if (!ft_strncmp(string, "rb", 2))

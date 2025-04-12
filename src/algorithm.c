@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 03:46:16 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/12 16:36:01 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/12 22:17:25 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 void	algorithm(t_stack **a, t_stack **b)
 { 
 	if(ft_lstsize(*a) <= 3)
-		return(sort_for_three(*a), exit(0));
+		return(sort_for_three(a), exit(0));
 	action_pb(a, b);
 	if(ft_lstsize(*a) > 3)
 		action_pb(a, b);
 	while(ft_lstsize(*a) > 3)
 		most_logical_move(a, b);
-	while((*b) > 0)
-		most_logical_move_b_to_a(a, b);
-	print_list(*a, 'a');
-	print_list(*b, 'b');
+	sort_for_b(b);
+	sort_for_three(a);
+	while(ft_lstsize(*b) > 0)
+		push_to_last_position(a, b);
+	final_rotation(a);
 }
 
 int	check_sorted(t_stack *a)
@@ -38,74 +39,75 @@ int	check_sorted(t_stack *a)
 	return (1);
 }
 
-void	sort_for_three(t_stack *a)
+void	sort_for_three(t_stack **a)
 {
-	if(a->data < a->next->data)
+	int first;
+	int second;
+	int third;
+	
+	first = (*a)->data;
+	second = (*a)->next->data;
+	third = (*a)->next->next->data;
+	if (first > second && second < third && first < third)
+		action_sa(*a, 0);
+	else if (first > second && second > third)
 	{
-		if(a->data < a->next->next->data)
-		{
-			action_rra(&a);
-			action_sa(a);
-		}
-		else
-			action_rra(&a);
+		action_sa(*a, 0);
+		action_rra(a, 0);
 	}
-	else
+	else if (first > second && second < third && first > third)
+		action_ra(a, 0);
+	else if (first < second && second > third && first < third)
 	{
-		if(a->next->data > a->next->next->data)
-		{
-			action_ra(&a);
-			action_sa(a);
-		}
-		else
-		{
-			if(a->data > a->next->next->data)
-				action_ra(&a);
-			else
-				action_sa(a);
-		}
+		action_sa(*a, 0);
+		action_ra(a, 0);
+	}
+	else if (first < second && second > third && first > third)
+		action_rra(a, 0);
+}
+
+
+void	push_together(t_stack **a, t_stack **b, int index_a, int index_b)
+{
+	while((index_a < 0 && index_b < 0)
+		&& (index_a != 0 && index_b != 0))
+	{
+		action_rrr(a, b);
+		index_a++;
+		index_b++;
+	}
+	while(index_a > 0 && index_b > 0
+		&& (index_a != 0 && index_b != 0))
+	{
+		action_rr(a, b);
+		index_a--;
+		index_b--;
 	}
 }
 
-void	most_logical_move(t_stack **a, t_stack **b)
+void	push_one(t_stack **a, t_stack **b, int index, char flag)
 {
-	int			candidate_a;
-	int			candidate_b;
-	int			move;
-	int			index_a;
-	int			index_b;
-	int			best_move;
-	t_stack		*temp;
-	int			temp_candidate_b;
-
-	best_move = 2147483647;
-	candidate_a = 0;
-	candidate_b = 0;
-	temp = *a;
-	while (temp)
+	while(index != 0)
 	{
-		temp_candidate_b = find_number_b(temp->data, b);
-		index_a = move_calculator_a(a, temp->data);
-		index_b = move_calculator_b(b, temp_candidate_b);
-		move = total_move(index_a, index_b);
-		if (move < best_move)
+		if(index < 0 && flag == 'a')
 		{
-			best_move = move;
-			candidate_a = temp->data;
-			candidate_b = temp_candidate_b;
+			action_rra(a, 0);
+			index++;
 		}
-		temp = temp->next;
+		else if(index > 0 && flag == 'a')
+		{
+			action_ra(a, 0);
+			index--;
+		}
+		else if(index < 0 && flag == 'b')
+		{
+			action_rrb(b, 0);
+			index++;
+		}
+		else if(index > 0 && flag == 'b')
+		{
+			action_rb(b, 0);
+			index--;
+		}	
 	}
-	index_a = move_calculator_a(a, candidate_a);
-	index_b = move_calculator_b(b, candidate_b);
-	push_logical_to_b(a, b, index_a, index_b);
-}
-
-int	total_move(int a, int b)
-{
-	if(a < 0)
-		a *= -1;
-	if(b < 0)
-		b *= -1;
-	return(a + b);
 }

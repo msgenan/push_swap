@@ -1,21 +1,22 @@
 NAME = push_swap
-SRCS =	./src/push_swap.c \
-		./src/utils.c \
+SRCS =	./src/utils.c \
 		./src/argument.c \
+		./src/push_swap.c \
+		./src/algorithm.c \
+		./src/calculater.c \
 		./src/actions/actions_s.c \
 		./src/actions/actions_p.c \
 		./src/actions/actions_r.c \
 		./src/actions/actions_rr.c \
-		./src/algorithm.c \
-		./src/algorithmic_actions.c \
-		./src/calculater.c \
+		./src/algorithmic_actions_a.c \
+		./src/algorithmic_actions_b.c \
 
-BUILD_DIR = build
-OBJS = $(SRCS:./src/%.c=$(BUILD_DIR)/%.o)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+BUILD_DIR = build
 MY_LIB_PATH = ./src/my_lib
+CFLAGS = -Wall -Wextra -Werror
 MY_LIB = $(MY_LIB_PATH)/my_lib.a
+OBJS = $(SRCS:./src/%.c=$(BUILD_DIR)/%.o)
 
 
 all: $(NAME)

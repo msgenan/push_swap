@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 21:12:14 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/11 01:46:07 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/12 22:19:06 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,13 @@ int	find_number_b(int data, t_stack **b)
 	return (value);
 }
 
-int	find_min_value(t_stack **b)
+int	find_min_value(t_stack **stack)
 {
 	int value;
 	t_stack *temp;
 
 	value = 2147483647;
-	temp = *b;
+	temp = *stack;
 	while (temp)
 	{
 		if (temp->data < value)
@@ -91,14 +91,13 @@ int	find_min_value(t_stack **b)
 	return (value);
 }
 
-
-int	find_max_value(t_stack **b)
+int	find_max_value(t_stack **stack)
 {
 	int value;
 	t_stack *temp;
 
 	value = -2147483648;
-	temp = *b;
+	temp = *stack;
 	while (temp)
 	{
 		if (temp->data > value)

@@ -6,13 +6,13 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 06:35:02 by mugenan           #+#    #+#             */
-/*   Updated: 2025/03/24 08:56:13 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/12 20:50:07 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    action_ra(t_stack **a) // a[first] -> a[last]
+void    action_ra(t_stack **a, int flag) // a[first] -> a[last]
 {
     t_stack *new;
     t_stack *tmp;
@@ -24,12 +24,11 @@ void    action_ra(t_stack **a) // a[first] -> a[last]
     *a = tmp->next;
     ft_lstdelone(tmp);
     ft_lstadd_back(a, new);
-	actions_message("ra");
-    if(check_sorted(*a) == 1 && (*a)->size == ft_lstsize(*a))
-		return(ft_lstclear(a), exit(0));
+    if(!flag)
+	    actions_message("ra");
 }
 
-void    action_rb(t_stack **b) // b[first] -> a[last]
+void    action_rb(t_stack **b, int flag) // b[first] -> a[last]
 {
     t_stack *new;
     t_stack *tmp;
@@ -41,12 +40,13 @@ void    action_rb(t_stack **b) // b[first] -> a[last]
     *b = tmp->next;
     ft_lstdelone(tmp);
     ft_lstadd_back(b, new);
-	actions_message("rb");
+    if(!flag)
+	    actions_message("rb");
 }
 
 void    action_rr(t_stack **a, t_stack **b) // (ra) (rb)
 {
-    action_ra(a);
-    action_rb(b);
+    action_ra(a, 1);
+    action_rb(b, 1);
 	actions_message("rr");
 }

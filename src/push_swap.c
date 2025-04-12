@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 01:00:09 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/11 01:33:40 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/12 21:57:33 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,4 @@ int main(int ac, char **av)
 	if(check_sorted(a) == 1)
 		return(ft_lstclear(&a), 0);
 	algorithm(&a, &b);
-	
 }
