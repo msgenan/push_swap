@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:11:28 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/12 22:14:36 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/13 00:14:52 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void most_logical_move(t_stack **a, t_stack **b)
 
 void    push_to_b(t_stack **a, t_stack **b, int index_a, int index_b)
 {
-	if ((a < 0 && b < 0) || (a > 0 && b > 0))
+	if((a < 0 && b < 0) || (a > 0 && b > 0))
 		push_together(a, b, index_a, index_b);
 	if(index_a != 0)
 		push_one(a, b, index_a, 'a');
@@ -53,34 +53,55 @@ void    push_to_b(t_stack **a, t_stack **b, int index_a, int index_b)
 	action_pb(a, b);
 }
 
-void	sort_for_b(t_stack **stack)
+void	sort_for_b(t_stack **b)
 {
 	t_stack *tmp;
 	int index;
 	
-	tmp = *stack;
-	index = move_calculator_b(stack, find_min_value(stack));
+	tmp = *b;
+	index = move_calculator_b(b, find_min_value(b));
 	while(index != 0)
 	{
 		if(index > 0)
 		{
-			action_rb(stack, 0);
+			action_rb(b, 0);
 			index--;
 		}
 		else
 		{
-			action_rrb(stack, 0);
+			action_rrb(b, 0);
 			index++;
 		}
 	}
-	action_rb(stack, 0);
+	action_rb(b, 0);
 }
 
 int	total_move(int a, int b)
 {
-	if(a < 0)
-		a *= -1;
-	if(b < 0)
-		b *= -1;
-	return(a + b);
+	int move;
+
+	move = 0;
+	if(a < 0 && b < 0)
+	{
+		if(a > b)
+			move = a - b;
+		else if(b > a)
+			move = b - a;
+	}
+	else if(b > 0 && a > 0)
+	{
+		if(a > b)
+			move = a - b;
+		else if(b > a)
+			move = b - a;
+	}
+	else if((a < 0 && b > 0) || (a > 0 && b < 0))
+	{
+		if(a < 0)
+			a *= -1;
+		else if(b < 0)
+			b *= -1;
+		move = a + b;
+	}
+	return(move);
 }

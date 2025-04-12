@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:14:51 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/12 22:21:39 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/12 22:39:51 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int     find_number_b(int data, t_stack **b);
 int     move_calculator_b(t_stack **b, int num);
 int     move_calculator_a(t_stack **a, int data);
 void	sort_for_b(t_stack **stack);
-void    final_rotation(t_stack **a);
 void	algorithm(t_stack **a, t_stack **b);
 void	most_logical_move(t_stack **a, t_stack **b);
 void	push_to_last_position(t_stack **a, t_stack **b);

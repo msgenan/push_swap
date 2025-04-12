@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 03:46:16 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/12 22:17:25 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/13 00:21:05 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	algorithm(t_stack **a, t_stack **b)
 	sort_for_three(a);
 	while(ft_lstsize(*b) > 0)
 		push_to_last_position(a, b);
-	final_rotation(a);
+	while ((*a)->data != find_min_value(a))
+		action_rra(a, 0);
 }
 
 int	check_sorted(t_stack *a)
@@ -76,7 +77,7 @@ void	push_together(t_stack **a, t_stack **b, int index_a, int index_b)
 		index_a++;
 		index_b++;
 	}
-	while(index_a > 0 && index_b > 0
+	while((index_a > 0 && index_b > 0)
 		&& (index_a != 0 && index_b != 0))
 	{
 		action_rr(a, b);

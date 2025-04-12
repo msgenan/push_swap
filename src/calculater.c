@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 21:12:14 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/12 22:19:06 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/13 00:18:38 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	move_calculator_a(t_stack **a, int data)
 {
-	int i;
 	t_stack *temp;
+	int i;
 
 	i = 0;
 	temp = *a;
@@ -26,7 +26,7 @@ int	move_calculator_a(t_stack **a, int data)
 		i++;
 		temp = temp->next;
 	}
-	if (ft_lstsize(*a) / 2 >= i)
+	if (ft_lstsize(*a) / 2 > i)
 		return (i);
 	else
 		return ((ft_lstsize(*a) - i) * -1);
@@ -46,7 +46,7 @@ int	move_calculator_b(t_stack **b, int num)
 		i++;
 		temp = temp->next;
 	}
-	if(ft_lstsize(*b) / 2 >= i)
+	if(ft_lstsize(*b) / 2 > i)
 		return(i);
 	else
 	    return((ft_lstsize(*b) - i) * -1);
@@ -77,8 +77,8 @@ int	find_number_b(int data, t_stack **b)
 
 int	find_min_value(t_stack **stack)
 {
-	int value;
 	t_stack *temp;
+	int value;
 
 	value = 2147483647;
 	temp = *stack;
@@ -93,8 +93,8 @@ int	find_min_value(t_stack **stack)
 
 int	find_max_value(t_stack **stack)
 {
-	int value;
 	t_stack *temp;
+	int value;
 
 	value = -2147483648;
 	temp = *stack;
@@ -106,4 +106,3 @@ int	find_max_value(t_stack **stack)
 	}
 	return (value);
 }
-
