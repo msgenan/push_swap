@@ -6,23 +6,25 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 21:12:14 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/13 00:18:38 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/13 04:56:35 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+#include "push_swap.h"
+
 int	move_calculator_a(t_stack **a, int data)
 {
-	t_stack *temp;
-	int i;
+	t_stack	*temp;
+	int		i;
 
 	i = 0;
 	temp = *a;
-	while(temp)
+	while (temp)
 	{
-		if(temp->data == data)
-			break;
+		if (temp->data == data)
+			break ;
 		i++;
 		temp = temp->next;
 	}
@@ -34,35 +36,34 @@ int	move_calculator_a(t_stack **a, int data)
 
 int	move_calculator_b(t_stack **b, int num)
 {
-	int i;
-	t_stack *temp;
+	t_stack	*temp;
+	int		i;
 
 	i = 0;
 	temp = *b;
-	while(temp)
+	while (temp)
 	{
-		if(temp->data == num)
-			break;
+		if (temp->data == num)
+			break ;
 		i++;
 		temp = temp->next;
 	}
-	if(ft_lstsize(*b) / 2 > i)
-		return(i);
+	if (ft_lstsize(*b) / 2 > i)
+		return (i);
 	else
-	    return((ft_lstsize(*b) - i) * -1);
+		return ((ft_lstsize(*b) - i) * -1);
 }
 
 int	find_number_b(int data, t_stack **b)
 {
-	int value;
-	int max;
-	int min;
-	t_stack *temp;
+	t_stack	*temp;
+	int		value;
+	int		max;
+	int		min;
 
 	value = -2147483648;
 	max = find_max_value(b);
 	min = find_min_value(b);
-
 	if (data < min)
 		return (max);
 	temp = *b;
@@ -77,8 +78,8 @@ int	find_number_b(int data, t_stack **b)
 
 int	find_min_value(t_stack **stack)
 {
-	t_stack *temp;
-	int value;
+	t_stack	*temp;
+	int		value;
 
 	value = 2147483647;
 	temp = *stack;
@@ -93,8 +94,8 @@ int	find_min_value(t_stack **stack)
 
 int	find_max_value(t_stack **stack)
 {
-	t_stack *temp;
-	int value;
+	t_stack	*temp;
+	int		value;
 
 	value = -2147483648;
 	temp = *stack;
@@ -104,5 +105,5 @@ int	find_max_value(t_stack **stack)
 			value = temp->data;
 		temp = temp->next;
 	}
-	return (value);
+	return(value);
 }

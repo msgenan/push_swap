@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:17:27 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/13 04:23:36 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/13 04:54:12 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 
 typedef struct s_stack
 {
-	int	data;
+	int				data;
 	struct s_stack	*next;
 }					t_stack;
-
 
 int		ft_lstsize(t_stack *lst);
 int		ft_atoi(const char *str);
@@ -41,6 +40,5 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new);
 size_t	ft_strlen(const char *s);
 t_stack	*ft_lstnew(int data);
 t_stack	*ft_lstlast(t_stack *lst);
-
 
 #endif

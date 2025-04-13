@@ -6,29 +6,33 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 01:00:19 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/13 03:48:17 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/13 04:56:14 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ft_error(void)
+#include <unistd.h>
+#include <stdlib.h>
+#include "push_swap.h"
+
+void	ft_error(void)
 {
-    write(1, "Error\n", 6);
-    exit(0);
+	write(1, "Error\n", 6);
+	exit(0);
 }
 
-void    str_free(char **str)
+void	str_free(char **str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while(str[i])
-        free(str[i++]);
-    free(str);
+	i = 0;
+	while (str[i])
+		free(str[i++]);
+	free(str);
 }
 
-int ft_strzero(const char *s)
+int	ft_strzero(const char *s)
 {
 	size_t	i;
 
@@ -36,34 +40,34 @@ int ft_strzero(const char *s)
 	while (s[i])
 	{
 		if (s[i] == '0')
-			return(1);
+			return (1);
 		i++;
 	}
-	return(0);
+	return (0);
 }
 
-long    ft_atol(char *str)
+long	ft_atol(char *str)
 {
-    int i;
-    int sign;
-    long result;
+	int		i;
+	int		sign;
+	long	result;
 
-    i = 0;
-    sign = 1;
-    result = 0;
-    if(str[i] == '-' || str[i] == '+')
-    {
-        if(str[i] == '-')
-            sign = -1;
-        i++;
-    }
-    while(str[i] && (str[i] >= '0' && str[i] <= '9'))
+	i = 0;
+	sign = 1;
+	result = 0;
+	if (str[i] == '-' || str[i] == '+')
 	{
-        result = (10 * result) + (str[i++] - 48);
-		if(result < -2147483648 || result > 2147483647)
-			return(2147483648);
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-    return(result * sign);
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+	{
+		result = (10 * result) + (str[i++] - '0');
+		if (result < -2147483648 || result > 2147483647)
+			return (2147483648);
+	}
+	return (result * sign);
 }
 
 void	actions_message(char *string)
