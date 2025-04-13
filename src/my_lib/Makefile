@@ -14,6 +14,7 @@ ft_lstadd_back.c \
 ft_lstdelone.c \
 ft_lstclear.c \
 ft_strncmp.c \
+ft_print_list.c \
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror

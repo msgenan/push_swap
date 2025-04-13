@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:14:51 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/12 22:39:51 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/13 03:02:31 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ void	print_list(t_stack *a, char c);
 
 long    ft_atol(char *str);
 char    **take_arg(char **av);
+int     check_space(char *s);
 int     check_sorted(t_stack *a);
 int     ft_strzero(const char *s);
-void    ft_error(char *str);
+void    ft_error(void);
 void    check_dup(char **s);
 void    check_arg(char **s);
 void    str_free(char **str);
@@ -57,7 +58,6 @@ void	push_to_last_position(t_stack **a, t_stack **b);
 void    push_to_a(t_stack **a, t_stack **b, int index_a);
 void	push_one(t_stack **a, t_stack **b, int index, char flag);
 void    push_to_b(t_stack **a, t_stack **b, int index_a, int index_b);
-void	push_together(t_stack **a, t_stack **b, int index_a, int index_b);
 
 
 void    action_sb(t_stack *b, int flag);

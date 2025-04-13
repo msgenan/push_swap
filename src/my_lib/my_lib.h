@@ -6,18 +6,18 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:17:27 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/11 00:59:30 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/13 04:23:36 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MY_LIB_H
 # define MY_LIB_H
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
 	int	data;
-	int	size;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -34,6 +34,7 @@ char	*ft_substr(char const *c, unsigned int start, size_t len);
 
 void	ft_lstclear(t_stack **lst);
 void	ft_lstdelone(t_stack *lst);
+void	ft_print_list(t_stack *a, char c);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
 

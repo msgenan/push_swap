@@ -6,7 +6,7 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 00:59:46 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/12 23:18:59 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/13 04:41:09 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,37 +24,41 @@ void    check_dup(char **s)
         while(s[j])
         {
             if(ft_atol(s[i]) == ft_atol(s[j]))
-                return(str_free(s), ft_error("dup!"));
+                return(str_free(s), ft_error());
             j++;
         }
         i++;
     }
 }
 
-void    check_arg(char **s)
+void	check_arg(char **s)
 {
-    int i;
-	int j;
+	int		i;
+	int		j;
+	long	num;
 
-    i = 0;
-	while(s[i])
+	i = 0;
+	while (s[i])
 	{
 		j = 0;
-		while(s[i][j])
+		if ((s[i][j] == '-' || s[i][j] == '+') && s[i][j + 1] != '\0')
+			j++;
+		while (s[i][j])
 		{
-			if(!((s[i][j] >= '0' && s[i][j] <= '9') || !(s[i][j] >= '-' && s[i][j] <= '+')))
-				return(str_free(s), ft_error("Karakterler sayilardan oluşmadi!"));
+			if (s[i][j] < '0' || s[i][j] > '9')
+				return (str_free(s), ft_error());
 			j++;
 		}
-		if(!(ft_atol(s[i]) >= INT_MIN && ft_atol(s[i]) <= INT_MAX))
-            return(str_free(s), ft_error("int siniri aşildi"));
-	    if((ft_atol(s[i]) != 0 || ft_strzero(s[i]) == 1))
-			i++;
-		else
-            return(str_free(s), ft_error("Error"));
+		num = ft_atol(s[i]);
+		if (num < INT_MIN || num > INT_MAX)
+			return (str_free(s), ft_error());
+		if (num == 0 && !ft_strzero(s[i]))
+			return (str_free(s), ft_error());
+		i++;
 	}
-    check_dup(s);
+	check_dup(s);
 }
+
 
 char    **take_arg(char **av)
 {
@@ -83,6 +87,20 @@ char    **take_arg(char **av)
     return (s);
 }
 
+int check_space(char *s)
+{
+    int i;
+
+    i = 0;
+    while(s[i])
+    {
+        if(s[i] != ' ')
+            return(0);
+        i++;
+    }
+    return(1);
+}
+
 void    take_list(t_stack **a, char **s)
 {
     t_stack *node;
@@ -94,7 +112,7 @@ void    take_list(t_stack **a, char **s)
     {
         node = ft_lstnew(ft_atol(s[i]));
         if(!node)
-            ft_error("something wrong there man!");
+            ft_error();
         if(!*a)
             *a = node;
         else

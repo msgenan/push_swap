@@ -6,15 +6,15 @@
 /*   By: mugenan <mugenan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 01:00:19 by mugenan           #+#    #+#             */
-/*   Updated: 2025/04/12 20:43:57 by mugenan          ###   ########.fr       */
+/*   Updated: 2025/04/13 03:48:17 by mugenan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ft_error(char *str)
+void    ft_error(void)
 {
-    printf("%s\n", str);
+    write(1, "Error\n", 6);
     exit(0);
 }
 
@@ -58,7 +58,11 @@ long    ft_atol(char *str)
         i++;
     }
     while(str[i] && (str[i] >= '0' && str[i] <= '9'))
+	{
         result = (10 * result) + (str[i++] - 48);
+		if(result < -2147483648 || result > 2147483647)
+			return(2147483648);
+	}
     return(result * sign);
 }
 
